@@ -1,0 +1,110 @@
+:root {
+    --bg-gradient: radial-gradient(circle at center, #1e1e21 0%, #0d0d0e 100%);
+    --accent: #ff2d55;
+    --accent-glow: rgba(255, 45, 85, 0.4);
+    --text-main: #ffffff;
+    --text-dim: rgba(255, 255, 255, 0.5);
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    font-family: system-ui, -apple-system, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.brand-title {
+    font-weight: 300;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6rem;
+    color: var(--text-dim);
+    margin-bottom: 3rem;
+}
+
+.stage {
+    position: relative;
+    padding: 20px;
+    /* Subtle outer glow for the wheel */
+    filter: drop-shadow(0 0 30px rgba(0,0,0,0.5));
+}
+
+/* The Pointer - Sleek Needle Design */
+.marker {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 30px;
+    background: var(--accent);
+    z-index: 10;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 0 15px var(--accent);
+}
+
+/* The Wheel Emphasis */
+#spinnerCanvas {
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    border: 8px solid #141416; /* Thick dark rim */
+    outline: 1px solid rgba(255,255,255,0.1); /* Thin outer silver line */
+    transition: transform 5s cubic-bezier(0.1, 0, 0.1, 1);
+}
+
+.controls {
+    margin-top: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#resultDisplay {
+    font-weight: 300;
+    font-size: 1.5rem;
+    text-transform: lowercase;
+    min-height: 2rem;
+    color: var(--accent);
+    transition: all 0.5s ease;
+}
+
+/* The New Straightforward Button */
+#spinBtn {
+    background: var(--accent);
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 1.2rem 4rem;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px var(--accent-glow);
+    transition: all 0.2s ease;
+}
+
+#spinBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px var(--accent-glow);
+    filter: brightness(1.1);
+}
+
+#spinBtn:active {
+    transform: translateY(1px);
+}

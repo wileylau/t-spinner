@@ -1,0 +1,10 @@
+{
+  "options": [
+    {"label": "Midnight", "color": "#1a1a1a"},
+    {"label": "Neon Rose", "color": "#ff2d55"},
+    {"label": "Deep Slate", "color": "#2c2c2c"},
+    {"label": "Electric", "color": "#ff007f"},
+    {"label": "Void", "color": "#000000"},
+    {"label": "Hot Pink", "color": "#fb00ff"}
+  ]
+}
