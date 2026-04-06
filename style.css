@@ -1,4 +1,5 @@
 :root {
+    --bg-color: #0d0d0e;
     --bg-gradient: radial-gradient(circle at center, #1e1e21 0%, #0d0d0e 100%);
     --accent: #ff2d55;
     --accent-glow: rgba(255, 45, 85, 0.4);
@@ -6,23 +7,40 @@
     --text-dim: rgba(255, 255, 255, 0.5);
 }
 
+html {
+    background-color: var(--bg-color);
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
     background: var(--bg-gradient);
     color: var(--text-main);
     font-family: system-ui, -apple-system, sans-serif;
     margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    letter-spacing: -0.02em;
+    -webkit-font-smoothing: antialiased;
 }
 
 .app-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
+    height: 100%;
+    padding: 4rem 0 calc(2rem + env(safe-area-inset-bottom)) 0;
+    box-sizing: border-box;
 }
 
 .brand-title {
@@ -31,20 +49,19 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.6rem;
     color: var(--text-dim);
-    margin-bottom: 3rem;
+    margin: 0;
 }
 
 .stage {
     position: relative;
-    padding: 20px;
-    /* Subtle outer glow for the wheel */
-    filter: drop-shadow(0 0 30px rgba(0,0,0,0.5));
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* The Pointer - Sleek Needle Design */
 .marker {
     position: absolute;
-    top: 0;
+    top: -10px;
     left: 50%;
     transform: translateX(-50%);
     width: 4px;
@@ -55,35 +72,34 @@ body {
     box-shadow: 0 0 15px var(--accent);
 }
 
-/* The Wheel Emphasis */
 #spinnerCanvas {
-    width: 360px;
-    height: 360px;
+    width: 320px;
+    height: 320px;
     border-radius: 50%;
-    border: 8px solid #141416; /* Thick dark rim */
-    outline: 1px solid rgba(255,255,255,0.1); /* Thin outer silver line */
+    border: 8px solid #141416;
+    outline: 1px solid rgba(255,255,255,0.1);
     transition: transform 5s cubic-bezier(0.1, 0, 0.1, 1);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
 .controls {
-    margin-top: 2rem;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    width: 100%;
 }
 
 #resultDisplay {
     font-weight: 300;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-transform: lowercase;
     min-height: 2rem;
+    margin-bottom: 2rem;
     color: var(--accent);
     transition: all 0.5s ease;
 }
 
-/* The New Straightforward Button */
 #spinBtn {
     background: var(--accent);
     border: none;
@@ -97,14 +113,10 @@ body {
     border-radius: 50px;
     box-shadow: 0 10px 20px var(--accent-glow);
     transition: all 0.2s ease;
-}
-
-#spinBtn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 25px var(--accent-glow);
-    filter: brightness(1.1);
+    -webkit-tap-highlight-color: transparent;
 }
 
 #spinBtn:active {
-    transform: translateY(1px);
+    transform: scale(0.96);
+    filter: brightness(0.9);
 }
