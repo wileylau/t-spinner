@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "要求又多又麻煩",
         "啲性格又奇怪",
         "總之就係好唔鍾意你",
-        "我忍夠啦"
+        "我忍夠啦",
+        "唔想見到你啦"
     ];
 
     const canvas = document.getElementById('spinnerCanvas');
